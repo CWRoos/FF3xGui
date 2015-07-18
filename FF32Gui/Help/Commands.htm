@@ -284,7 +284,7 @@ s3</P>
      
 &nbsp;</P></BLOCKQUOTE>
 <P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>1WIRE 
-RESET</STRONG>     
+RESET</STRONG> Sx     
      
           
      
@@ -292,9 +292,13 @@ RESET</STRONG>
 <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
 <P style="MARGIN-RIGHT: 0px" dir=ltr>     
      
-    Resets the     
-1Wire     
-port</P>
+    Resets the 1Wire 
+  port, Sx is a S variable (S1 .. S9) and contains the number<BR>1Wire devices 
+  found, if Sx is zero the there     
+     
+    are no     
+1Wire&nbsp;devices     
+connected.</P>
 <P style="MARGIN-RIGHT: 0px" dir=ltr>     
      
           
@@ -379,7 +383,7 @@ expression}</P>
           
      
 Loops back to DO 
-  when the compare expression returns false<BR>loop until {a3 = 0}&nbsp;&nbsp; Jumps 
+  when the compare expression returns false<BR>loop until {a3 =    0}&nbsp;&nbsp; Jumps 
   back to the line after DO when pin a3 is 1, else it just 
 continues.<BR>     
      

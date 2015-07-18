@@ -2024,10 +2024,32 @@ Public Class FF32Gui
                         Case "RESET"
                             If clsFF3x_API.Reset1Wire(bytResponse) = False Then
                                 PrintMessage("Error", clsFF3x_API.LastError)
+                            Else
+                                betw = Trim(betw.Substring(post + 1)).ToUpper
+                                If line.Length < 2 Then
+                                    PrintMessage("Error at Line ", lineorg)
+                                Else
+                                    chrn = GetChar(betw, 1)
+                                    If chrn = "S" Then
+                                        token = "S"
+                                    Else
+                                        PrintMessage("Error at Line ", lineorg)
+                                        Return 1
+                                    End If
+                                    chrn = GetChar(betw, 2)
+                                    If chrn < "1" And chrn > "9" Then
+                                        PrintMessage("Error at Line ", lineorg)
+                                        Return 1
+                                    Else
+                                        token &= chrn
+                                        betw = (bytResponse(1)).ToString
+                                        SetS(token, betw)
+                                    End If
+                                End If
                             End If
-                        Case Else
-                            PrintMessage("Error at Line ", lineorg)
-                    End Select
+            Case Else
+                PrintMessage("Error at Line ", lineorg)
+        End Select
                 End If
             Case "IF"
                 If post = 0 Then
@@ -2633,11 +2655,11 @@ Public Class FF32Gui
         End Select
     End Function
 
-    Private Sub DoIf(cond As String, line As String, ByRef tok As Char, i As Integer)
+    Private Sub DoIf(cond As String, line As String, ByRef tok As Char, ByRef i As Integer)
         Dim doit As Boolean = GetCondition(cond, tok)
         If tok = "E" Then Return
         If doit Then
-            EvalFF3(line, i - 1)
+            i = EvalFF3(line, i - 1)
         End If
     End Sub
 

@@ -248,8 +248,6 @@ html,body {
 }
 </style>
 
-<P><STRONG>String expressions consists 
-of strings and/or numeric expressions.</STRONG></P>
 <P><STRONG>Numeric Expressions</STRONG></P>
 <P>These are just numbers and calculations<BR>Numbers can be entered as decimal, 
 hex and binary<BR>Hex numbers Start with an x, like xBA4C<BR>Binary numbers 
@@ -350,7 +348,7 @@ pin, always 1 or 0.</P>
   a1<BR>b12 = 5 * 6</FONT></P>
 <P><FONT color=#808080></FONT>&nbsp;</P></BLOCKQUOTE>
 <P dir=ltr><FONT color=#000000>Then there are 2 special 
-block variables, AB and BB, the set or read a whole block.<BR>When set they need 
+block variables, AB and BB, they set or read a whole block.<BR>When set they need 
 2 numeric expressions, the mask and the data, when read they need only the 
 mask.</FONT></P>
 <P dir=ltr> 
@@ -359,7 +357,7 @@ where the mask is 0 will not be affected.</P>
 <P dir=ltr> 
  Examples ;</P>
 <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
-<P dir=ltr><FONT color=#808080>AB =     3 
+<P dir=ltr><FONT color=#808080>AB =      3 
   1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
   Will set A1 to 1 and A2 to zero <BR>BB = n101 n100&nbsp;&nbsp;&nbsp;&nbsp; 
   Will set B3 to one and B1 to 
@@ -383,7 +381,7 @@ contain negative numbers as well as result of an expression.<BR>But -1 be
 converted to 1 when used as byte and not 255</FONT></P>
 <P dir=ltr>Examples ;</P>
 <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
-<P dir=ltr><FONT color=#808080>S4 =      12.7<BR>s1 = 5 / 
+<P dir=ltr><FONT color=#808080>S4 =       12.7<BR>s1 = 5 / 
   2<BR>S2 = S1 * S4</FONT></P>
 <P dir=ltr><FONT color=#808080></FONT>&nbsp;</P></BLOCKQUOTE>
 <P dir=ltr><FONT color=#000000>Then 
@@ -700,7 +698,7 @@ s3</P>
      
 &nbsp;</P></BLOCKQUOTE>
 <P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>1WIRE 
-RESET</STRONG>     
+RESET</STRONG> Sx     
      
           
      
@@ -708,9 +706,13 @@ RESET</STRONG>
 <BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
 <P style="MARGIN-RIGHT: 0px" dir=ltr>     
      
-    Resets the     
-1Wire     
-port</P>
+    Resets the 1Wire 
+  port, Sx is a S variable (S1 .. S9) and contains the number<BR>1Wire devices 
+  found, if Sx is zero the there     
+     
+    are no     
+1Wire&nbsp;devices     
+connected.</P>
 <P style="MARGIN-RIGHT: 0px" dir=ltr>     
      
           
@@ -795,7 +797,7 @@ expression}</P>
           
      
 Loops back to DO 
-  when the compare expression returns false<BR>loop until {a3 = 0}&nbsp;&nbsp; Jumps 
+  when the compare expression returns false<BR>loop until {a3 =    0}&nbsp;&nbsp; Jumps 
   back to the line after DO when pin a3 is 1, else it just 
 continues.<BR>     
      
@@ -869,11 +871,11 @@ html,body {
 <P>Reads the temperature from a DS18B20 by 1wire on pin B1.<BR>It keeps looping, 
 so press stop to stop it</P>
 <P>&nbsp;</P>
-<P><EM>' reads temp from 1wire device DS18B20 on pin 
-B1<BR>s2 = 1-2<BR>1wire set b1<BR>do<BR>1wire write [cc44]<BR>sleep<BR>1wire 
-read 9 buffa [ccbe]<BR>s1 = buffa(1) * 256 + buffa(0)<BR>if {buffa(1) &gt; 127} 
-s1 = 65536 - s1<BR>s1 = s1 / 16<BR>if {buffa(1) &gt; 127} s1 = s1 * s2<BR>print 
-s1<BR>loop</EM> 
+<P><EM>' reads temp from 1wire device 
+DS1820 on pin B1<BR>s2 = 1-2<BR>1wire set b1<BR>1wire reset s3</EM><EM><BR>if {s3=0} end<BR>do<BR>1wire write 
+[cc44]<BR>sleep<BR>1wire read 9 buffa [ccbe]<BR>s1 = buffa(1) * 256 + 
+buffa(0)<BR>if {buffa(1) &gt; 127} s1 = 65536 - s1<BR>s1 = s1 / 16<BR>if 
+{buffa(1) &gt; 127} s1 = s1 * s2<BR>print s1<BR>loop</EM> 
  <EM>             </EM></P>
 <a name="A13"></a><h2>4.3 Servo</h2>
 <style>
@@ -898,8 +900,8 @@ html,body {
 }
 </style>
 
-<P><EM>This controls a servo via pin B1 with a 
-potentiometer, The servo sits on pin A1</EM></P>
+<P>This controls a servo via pin B1 with a potentiometer, 
+The servo sits on pin A1</P>
 <P><EM></EM>&nbsp;</P>
 <P><EM>' control a servo on pin A1 with a potentiometer 
 on B1<BR>do<BR>s2 = 100 / v<BR>s1 = ba1 * s2<BR>pwm a1 s1<BR>loop</EM> 
