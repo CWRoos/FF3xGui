@@ -617,7 +617,7 @@ s3</p>
  </p>
 </blockquote>
 <p dir="ltr"><strong>1WIRE 
-RESET</strong>     
+RESET</strong> Sx     
      
           
      
@@ -625,10 +625,13 @@ RESET</strong>
 
 <blockquote dir="ltr">
 <p dir="ltr">     
+    Resets the 1Wire 
+  port, Sx is a S variable (S1 .. S9) and contains the number<br>1Wire devices 
+  found, if Sx is zero then there     
      
-    Resets the     
-1Wire     
-port</p>
+    are no     
+1Wire devices     
+connected.</p>
 <p dir="ltr">     
      
           
@@ -783,10 +786,10 @@ so press stop to stop it</p>
 <p> </p>
 
 <p><em>' reads temp from 1wire device DS18B20 on pin 
-B1<br>s2 = 1-2<br>1wire set b1<br>do<br>1wire write [cc44]<br>sleep<br>1wire 
-read 9 buffa [ccbe]<br>s1 = buffa(1) * 256 + buffa(0)<br>if {buffa(1) &gt; 127} 
-s1 = 65536 - s1<br>s1 = s1 / 16<br>if {buffa(1) &gt; 127} s1 = s1 * s2<br>print 
-s1<br>loop</em> 
+B1<br>s2 = 1-2<br>1wire set b1<br>1wire reset s3</em><em><br>if {s3=0} end<br>do<br>1wire write 
+[cc44]<br>sleep<br>1wire read 9 buffa [ccbe]<br>s1 = buffa(1) * 256 + 
+buffa(0)<br>if {buffa(1) &gt; 127} s1 = 65536 - s1<br>s1 = s1 / 16<br>if 
+{buffa(1) &gt; 127} s1 = s1 * s2<br>print s1<br>loop</em> 
  <em>             </em></p>
 
 <p><a name="A13"></a></p><h2>
