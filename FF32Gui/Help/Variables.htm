@@ -1,0 +1,91 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Variables</title>
+<meta name="GENERATOR" content="WinCHM">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+
+</head>
+
+<body>
+<P> 
+ All variables are predefined.</P>
+<P> 
+ Most imported are the port pins as variables, these are A1 
+.. A6 and B1 .. B12</P>
+<P> 
+ These are 1 bit variables, are only 1 or 0, they can be 
+set like A1=&lt;numeric expression)<BR>When the result of the numeric 
+expression is not 1 or zero, then it will be compared to<BR>the half of the 
+voltage, so when powered with 5 volts, the pin will be set to zero if 
+the<BR>result is below 2.5,when the power is 3.3 volt, then zero is below 
+1.5</P>
+<P> 
+ When used in expressions, they will return the state of the 
+pin, always 1 or 0.</P>
+<P> 
+ Examples ;</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P><FONT color=#808080>A1=0<BR>B10 = 1<BR>a3 = a3 | 
+  a1<BR>b12 = 5 * 6</FONT></P>
+<P><FONT color=#808080></FONT>&nbsp;</P></BLOCKQUOTE>
+<P dir=ltr><FONT color=#000000>Then there are 2 special 
+block variables, AB and BB, the set or read a whole block.<BR>When set they need 
+2 numeric expressions, the mask and the data, when read they need only the 
+mask.</FONT></P>
+<P dir=ltr> 
+ Like AB=&lt;mask&gt; &lt;data&gt;&nbsp; Ports 
+where the mask is 0 will not be affected.</P>
+<P dir=ltr> 
+ Examples ;</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P dir=ltr><FONT color=#808080>AB =     3 
+  1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  Will set A1 to 1 and A2 to zero <BR>BB = n101 n100&nbsp;&nbsp;&nbsp;&nbsp; 
+  Will set B3 to one and B1 to 
+  zero<BR>BBn1010&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Will 
+  return the pins of B2 and B4, when both are low it return zero, when both are 
+  high it returns 10 (decimal)</FONT></P>
+<P dir=ltr><FONT color=#808080></FONT>&nbsp;</P></BLOCKQUOTE>
+<P dir=ltr><FONT color=#000000>Then 
+there are 12 analog pin variables, BA1 .. BA12,&nbsp;they are read only and 
+returns the voltage from the pin.</FONT></P>
+<P dir=ltr>Examples ;</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P dir=ltr><FONT color=#808080>BA10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  Returns the voltage on pin B10<BR>ba9 * 10&nbsp;&nbsp;&nbsp;&nbsp; Returns the 
+  voltage on pin B9 multiplied by 10<BR>BA1 / 100&nbsp;&nbsp; Returns the 
+  voltage from pin 1 devided by 100</FONT></P>
+<P dir=ltr><FONT color=#808080></FONT>&nbsp;</P></BLOCKQUOTE>
+<P dir=ltr><FONT color=#000000>There are 
+9 predefined (double) variables, S1 .. S9<BR>They can be write and read and can 
+contain negative numbers as well as result of an expression.<BR>But -1 be 
+converted to 1 when used as byte and not 255</FONT></P>
+<P dir=ltr>Examples ;</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P dir=ltr><FONT color=#808080>S4 =      12.7<BR>s1 = 5 / 
+  2<BR>S2 = S1 * S4</FONT></P>
+<P dir=ltr><FONT color=#808080></FONT>&nbsp;</P></BLOCKQUOTE>
+<P dir=ltr><FONT color=#000000>Then 
+there are 4 
+buffers of 60 bytes, Buffa .. Buffb</FONT></P>
+<P dir=ltr>They can be filled with a string expression or 
+with a HEX string.<BR>They can be used in string expressions as well.</P>
+<P dir=ltr>And they can be accessed by index like BUFFA(4)</P>
+<P dir=ltr>Examples ;</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P dir=ltr><FONT color=#808080>BUFFA = 
+  [45def45ab]<BR>buffb = "Port B12 is ; ",b12<BR>Buffd = "Buffa = ",buffa<BR>buffa(5)=12<BR > BUFFD(4) = 
+  BUFFA(5)</FONT></P>
+<P dir=ltr><FONT color=#808080></FONT>&nbsp;</P></BLOCKQUOTE>
+<P dir=ltr>And then there is a read only variable V, which 
+contains the power, 5 or 3.3</P>
+<P dir=ltr>&nbsp;</P></body>
+</html>

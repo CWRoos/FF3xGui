@@ -1,0 +1,417 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Commands</title>
+<meta name="GENERATOR" content="WinCHM">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+
+</head>
+
+<body>
+<P> 
+ Commands / Statements are always the first in a 
+line.</P>
+<P> 
+ Case don't matter, can be uppercase or lowercase or 
+combination.</P>
+<P><STRONG>'</STRONG> is the 
+ remark symbol, a line beginning with ' will be 
+ignored.</P>
+<P> 
+ Commands are ;</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>WRITE</STRONG> 
+(filename) BUFFx&nbsp;</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>Writes a buffer, 
+  BUFFA .. BUFFD, to a file (filename)<BR>Filename can be a string expression as 
+  well<BR>write (test.txt) buffa<BR>write ("test",s1,".txt") buffb</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>&nbsp;</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>READ</STRONG> 
+(filename) BUFFx</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>Reads a file into a 
+  buffer, BUFFA .. BUFFD<BR>Filename can be a string expression as well<BR>If the 
+  file exists it reads max 60 bytes<BR>read&nbsp;(test.txt) 
+  buffa<BR>read&nbsp;("test",s1,".txt") buffb</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>&nbsp;</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>PRINT</STRONG> 
+&lt;D/S/X/N&gt; (string expression) or (numeric expression)</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>Prints a string 
+  expression or numeric expression to the output screen on the right 
+  below.<BR>&lt;D/S/X/N&gt; is optional, only one of them, no combinations<BR>If 
+  D then it will force to print decimal&nbsp; &gt; print d&nbsp;5 * 10 
+  &nbsp;&gt; 50<BR>If S it will force to print as a string &gt; print s "hello 
+  world" &gt; hello world<BR>If X it will force to print as HEX &gt; print x 255 
+  &gt; FF<BR>if N Then it will print the result as binary &gt; print n xa &gt; 
+  1010</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>Default is decimal 
+  or string, depending on the expression to print.</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>&nbsp;</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>SLEEP</STRONG> 
+&lt;numeric expression&gt;</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>Sleeps for 1 second 
+  default, or when numeric expression is present, it sleeps for the result of 
+  the expression in milliseconds.</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>sleep &gt; sleeps 
+  one second<BR>sleep 500 &gt; sleeps 500 
+milliseconds</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+&nbsp;</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>WAIT</STRONG>&nbsp;pin= 
+ 0/1 &lt;numeric expression&gt;</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+wait     
+(sleeps) until the 
+  pin goes high or low, numeric expression is optimal en is the max 
+  milliseconds to wait.<BR>wait b1 = 0&nbsp; &gt;&nbsp;&nbsp; &nbsp;waits 
+  until pin b1 becomes zero.<BR>wait a1 =  1&nbsp; 500&nbsp;&nbsp;&nbsp; &gt;&nbsp; 
+  waits until pin a1 goes high or 500 milliseconds, whatever comes     
+first.</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+&nbsp;</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>PWM</STRONG> 
+pinA&nbsp; numeric     
+expression</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+Sets the PWM on one 
+  of the A pins (A1 .. A6)<BR>Numeric expression is the percentage (0 .. 
+  100%)<BR>Greater than 100 will always be 100<BR>pwm a2 50&nbsp;&nbsp; .&nbsp; 
+  sets&nbsp;PWM on a2 at 50%<BR>pwm a1 50 / 2&nbsp;&nbsp; &gt;&nbsp; 
+  sets&nbsp;PWM on pin a1 at     
+25%</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+&nbsp;</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>SPI 
+SET</STRONG> pin1 pin2 pin3 pin4 (CS,SCK,MOSI,MISO)</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+Sets the pins used 
+  for SPI, can be any pin (A1 .. A6, B1 .. B12)<BR>pin1 - 
+  CS, pin2 - SCK, pin3 - MOSI and pin4 - MISO<BR>spi set a1 a2 a3 a4&nbsp; &gt; sets SPI pins 
+  (a1 .. a4) resp     
+(CS,SCK,MOSI,MISO)</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+&nbsp;</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>SPI 
+WRITE</STRONG> (string expression) or     
+(HEX     
+String)</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+Writes the string 
+  expression or hex string (max 60 bytes) to the SPI port<BR>spi write "hello 
+  world"&nbsp;&nbsp; &gt; sends hello world out on SPI<BR>spi write 
+  [f3ad56eb]&nbsp;&nbsp; &gt;&nbsp; writes an hex string to the&nbsp;SPI port     
+as     
+binary</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+     
+&nbsp;</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>SPI 
+READ</STRONG> len BUFFx &lt;(string expression) or     
+(HEX     
+String)&gt;</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+Reads len number of 
+  bytes from&nbsp;SPI in one of the buffers (BUFFA .. BUFFD)<BR>len is a numeric 
+  expression max 60 If higher it will be 60<BR>When the string expression or hex 
+  string is present, then this will be written before reading (max 60 
+  bytes)<BR>spi read 10 buffa&nbsp;&nbsp; &gt;&nbsp;&nbsp; reads 10 bytes from 
+  SPI in buffa<BR>spi read 20 buffb "hello"&nbsp;&nbsp; &gt; writes hello to SPI 
+  and then reads 20 bytes in buffb<BR>spi read 60 buffc [abcdef09]&nbsp; &gt; 
+  writes the hex string as binary to SPI and then reads 60 bytes     
+in     
+buffc</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+     
+&nbsp;</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>I2C 
+SET</STRONG> pin1     
+pin2     
+(SCL,SDA)</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+Sets the pins used 
+  for I2C, can be any pin (A1 .. A6, B1 .. B12)<BR>pin1 
+  -&nbsp;SCL and pin2 - SDA<BR>i2c set a1 a2&nbsp; &gt; sets SPI pins (a1 .. a2) 
+     
+resp     
+(SCL,SDA)</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+     
+&nbsp;</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>I2C 
+WRITE</STRONG> (string expression) or     
+(HEX     
+String)</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+Writes the string 
+  expression or hex string (max 60 bytes) to the&nbsp;I2C port<BR>i2c write 
+  "hello world"&nbsp;&nbsp; &gt; sends hello world out on I2C <BR>i2c write 
+  [f3ad56eb]&nbsp;&nbsp; &gt;&nbsp; writes an hex string to the&nbsp;I2C port     
+as     
+binary</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+     
+&nbsp;</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>I2C 
+READ</STRONG> len BUFFx &lt;(string expression) or     
+(HEX     
+String)&gt;</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+Reads len number of 
+  bytes from&nbsp;I2C in one of the buffers (BUFFA .. BUFFD)<BR>len is a numeric 
+  expression max 60 If higher it will be 60<BR>When the string expression or hex 
+  string is present, then this will be written before reading (max 60 
+  bytes)<BR>i2c&nbsp;read 10 buffa&nbsp;&nbsp; &gt;&nbsp;&nbsp; reads 10 bytes 
+  from&nbsp;I2C in buffa<BR>i2c&nbsp;read 20 buffb "hello"&nbsp;&nbsp; &gt; 
+  writes hello to I2C and then reads 20 bytes in buffb<BR>i2c read 60 buffc 
+  [abcdef09]&nbsp; &gt; writes the hex string as binary to&nbsp;I2C and then 
+  reads 60 bytes     
+in     
+buffc</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+     
+&nbsp;</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>1WIRE 
+SET</STRONG>     
+     
+pin</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+Sets the pin used 
+  for 1Wire (DQ), can be any pin (A1 .. A6, B1 .. B12)<BR>1wire set 
+  b1&nbsp;&nbsp; &gt; sets b1 to be uses as DQ pin     
+for     
+1Wire</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+     
+&nbsp;</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>1WIRE 
+WRITE</STRONG> (string expression) or     
+(HEX     
+String)</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+Writes the string 
+  expression or hex string (max 60 bytes) to the&nbsp;1Wire 
+  port<BR>1wire&nbsp;write "hello world"&nbsp;&nbsp; &gt; sends hello world out 
+  on&nbsp;1Wire <BR>1wire write [f3ad56eb]&nbsp;&nbsp; &gt;&nbsp; writes an hex 
+  string to the&nbsp;1Wire port     
+as     
+binary</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+     
+&nbsp;</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>1WIRE 
+WRITEB</STRONG>     
+numeric     
+expression</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+Writes one bit (1 or 
+  0) out to the 1Wire port<BR>When the result of the numeric expression is not 1 
+  or zero, then it will be compared to<BR>the half of the 
+  voltage, so when powered with 5 volts, the pin will be set to zero if the<BR 
+  >result is below 2.5,when the power is 3.3 volt, then zero 
+  is below 1.5<BR>     
+ 1wire writeb 0&nbsp;&nbsp; &gt;&nbsp; 
+  send a zero out     
+to     
+1Wire</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+     
+          
+     
+&nbsp;</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>1WIRE 
+READ</STRONG>     
+    len 
+  BUFFx &lt;(string expression) or     
+(HEX     
+String)&gt;</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+Reads len number of 
+  bytes from&nbsp;1Wire in one of the buffers (BUFFA .. BUFFD)<BR>len is a numeric 
+  expression max 60 If higher it will be 60<BR>When the string expression or hex 
+  string is present, then this will be written before reading (max 60 
+  bytes)<BR>1wire&nbsp;read 10 buffa&nbsp;&nbsp; &gt;&nbsp;&nbsp; reads 10 bytes 
+  from&nbsp;1Wire in buffa<BR>1wire&nbsp;read 20 buffb "hello"&nbsp;&nbsp; 
+  &gt; writes hello to&nbsp;1Wire and then reads 20 bytes in buffb<BR>1wire&nbsp;read 60 buffc 
+  [abcdef09]&nbsp; &gt; writes the hex     
+string as binary to&nbsp;1Wire and 
+  then reads 60 bytes     
+in     
+buffc</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+     
+          
+     
+&nbsp;</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>1WIRE 
+READB</STRONG>     
+     
+          
+     
+Sx</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+Reads one bit (0 or 
+  1) from the 1Wire port in a Sx variable (S1 .. S9)<BR>1wire readb 
+  s3&nbsp;&nbsp;&nbsp;     
+&gt;&nbsp; reads one bit from 
+  the one wire port     
+in     
+s3</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+     
+          
+     
+&nbsp;</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>1WIRE 
+RESET</STRONG>     
+     
+          
+     
+</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+     
+    Resets the     
+1Wire     
+port</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+     
+          
+     
+&nbsp;</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>IF</STRONG>     
+     
+     {compare     
+expression}     
+statement</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+The statement will be 
+  executed when the compare expression returns true<BR>if {a1 =0} print "A1 is 
+  low"&nbsp;&nbsp;&nbsp;&gt; &nbsp;will print A1 is&nbsp;low when pin a1 is 
+  0<BR>if {a1 =1} print "A1 is high"&nbsp;&nbsp;&gt;&nbsp; will print A1 
+  is&nbsp;high when pin a1     
+is     
+1</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+     
+          
+     
+&nbsp;</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>DO 
+</STRONG>     
+     
+          
+     
+</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+     
+          
+     
+Starts a loop, 
+  defines where a loop jumps back to, if there is no LOOP, it will just do 
+  nothing.<BR>do&nbsp;&nbsp;&nbsp; &gt; Defines the do     
+     
+          
+     
+location</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+     
+          
+     
+&nbsp;</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>LOOP</STRONG> 
+&lt;numeric     
+     
+          
+     
+expression&gt;</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+     
+          
+     
+End of a loop, jumps 
+  back to just after the DO<BR>When numeric expression is present then it will 
+  jump result of expression times.<BR>loop&nbsp;&nbsp; &gt; jumps back to the 
+  line after DO<BR>loop 10&nbsp; &gt; loops 10 times. and then continues with 
+  the following     
+     
+          
+     
+lines</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+     
+          
+     
+&nbsp;</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>LOOP 
+UNTIL</STRONG> {compare     
+     
+          
+     
+expression}</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+     
+          
+     
+Loops back to DO 
+  when the compare expression returns false<BR>loop until {a3 = 0}&nbsp;&nbsp; Jumps 
+  back to the line after DO when pin a3 is 1, else it just 
+continues.<BR>     
+     
+          
+     
+</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG><FONT color=#ff0000><FONT size=4>Nested loops are not implemented, LOOP will jump back 
+to the last encountered DO</FONT> </FONT></STRONG>     
+     
+          
+     
+</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG><FONT color=#ff0000></FONT></STRONG>     
+     
+          
+     
+&nbsp;</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><FONT color=#000000><STRONG>END</STRONG>&nbsp; </FONT>     
+     
+          
+     
+</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+     
+          
+     
+If used inside a 
+  loop, it will end the loop and&nbsp;jump to the line after the loop<BR>if used 
+  outside a loop it will end (stops) the     
+     
+          
+     
+script.</P></BLOCKQUOTE></body>
+</html>

@@ -1,0 +1,85 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Introduction</title>
+<meta name="GENERATOR" content="WinCHM">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+
+</head>
+
+<body>
+<P>The right part of the screen is the interactive part&nbsp;for direct communication 
+with the FF32.</P>
+<P>The Output window below shows the result of the actions, the clear button 
+clears this window.</P>
+<P><STRONG>About</STRONG> ; </P>
+<P><IMG alt="" src="about.png"></P>
+<P>Shows the number of devices connected, the 1st device and 
+the firmware version.<BR>You can get and set the USB address for the device, 
+Vendor name, Product and Serial Number.<BR>Can write anything you want and click 
+on Set to Save it in the ff32</P>
+<P><STRONG>Dig OUT ;</STRONG></P>
+<P><IMG alt="" src="DigOut.png"></P>
+<P>Here you can set pins high or low (1 or 0)<BR>Or set a 
+whole block or several pins in a block (A or B) at once.<BR>Only the pins with 
+Enabled checked will be affected.</P>
+<P><STRONG>Dig IN</STRONG>;</P>
+<P><IMG alt="" src="DigIn.png"></P>
+<P>Read the value, low or high from a pin or read more pins 
+from a block or a whole block.<BR>Only pins with Enabled set will be read.</P>
+<P><STRONG>PWM</STRONG>;</P>
+<P><IMG alt="" src="pwm.png"></P>
+<P>Sets one to 4 of the A block pins as PWM, from 0 to 
+100%<BR>Stop All will set all 4 to 0%, Set All will set all 4 pins at once with 
+the specified %</P>
+<P><STRONG>Analog IN</STRONG>;</P>
+<P><IMG alt="" src="analogin.png"></P>
+<P>Gets the Analog input from one of the B pins.<BR>Plot 
+will start sampling the pin and plots a graphical (Simple Scope) <BR>Stop, 
+stops sampling and plotting.</P>
+<P><STRONG>SPI</STRONG>;</P>
+<P><IMG alt="" src="spi.png"></P>
+<P>For SPI serial communication.<BR>First Set the pins to 
+use for CS, SCK, MOSI and MISO.<BR>Read will read the SPI port (Data Length 
+bytes),&nbsp;if there is data in the Data to Write or Write before Read 
+part<BR>Then this data will be send out before the read starts<BR>Write will 
+write out the data in the Data to Write or Write before Read part<BR>Load will 
+load a file in the Data to Write or Write before Read part (max 60 
+bytes)<BR>Save will save the Data to Write or Write before Read part to 
+disk<BR>Data length is the max number of bytes to read. (max 60 bytes)<BR>ASCII 
+or HEX can be set to set the Data to Write or Write before Read part in ASCII or 
+HEX mode.<BR>Type only HEX Digits in hex mode or data might be lost.</P>
+<P><STRONG>I2C</STRONG>;</P>
+<P><IMG alt="" src="i2c.png"></P>
+<P>For&nbsp;I2C serial communication.<BR>First Set the pins 
+to use for SCL and SDA<BR>Read will read the I2C port (Data Length 
+bytes),&nbsp;if there is data in the Data to Write or Write before Read 
+part<BR>Then this data will be send out before the read starts<BR>Write will 
+write out the data in the Data to Write or Write before Read part<BR>Load will 
+load a file in the Data to Write or Write before Read part (max 60 
+bytes)<BR>Save will save the Data to Write or Write before Read part to 
+disk<BR>Data length is the max number of bytes to read. (max 60 bytes)<BR>ASCII 
+or HEX can be set to set the Data to Write or Write before Read part in ASCII or 
+HEX mode.<BR>Type only HEX Digits in hex mode or data might be lost.</P>
+<P><STRONG>1-Wire</STRONG>;</P>
+<P><IMG alt="" src="wire1.png"></P>
+<P>For&nbsp;1Wire serial communication.<BR>First Set the 
+pin to use for DQ<BR>Read will read the&nbsp;1Wire port (Data Length 
+bytes),&nbsp;if there is data in the Data to Write or Write before Read 
+part<BR>Then this data will be send out before the read starts<BR>Write will 
+write out the data in the Data to Write or Write before Read part<BR>Load will 
+load a file in the Data to Write or Write before Read part (max 60 
+bytes)<BR>Save will save the Data to Write or Write before Read part to 
+disk<BR>Data length is the max number of bytes to read. (max 60 bytes)<BR>ASCII 
+or HEX can be set to set the Data to Write or Write before Read part in ASCII or 
+HEX mode.<BR>Type only HEX Digits in hex mode or data might be lost.<BR>Reset 
+will reset the port<BR>Write bit 1, writes a 1, Write bit 0 writes a 0 and read 
+bit reads one bit.</P></body>
+</html>

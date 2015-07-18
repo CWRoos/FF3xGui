@@ -1,0 +1,908 @@
+﻿<html>
+<head>
+<title>FF3xGui</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+h1 {font-size: 24pt;line-height: 50px;}
+h2 {font-size: 18pt;line-height: 30px;}
+h3 {font-size: 16pt;line-height: 20px;}
+h4 {font-size: 14pt;line-height: 18px;}
+h5 {font-size: 12pt;line-height: 16px;}
+h6 {font-size: 10pt;line-height: 14px;}
+
+.ProjectTitle {
+	font-size: 64px;
+	color: #000000;
+	font-weight: bold;
+}
+-->
+</style>
+
+</head>
+
+<body>
+<div align="center">
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><font class="ProjectTitle">FF3xGui</font></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+<P Style="page-break-before: always"><a name="A0"></a><h1>1. FF32Gui</h1>
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+
+<P>This is a GUI for Programming the FF32 chip from <A 
+href="http://www.flyfish-tech.com/FF32/index.php">FlyFish 
+Technologies</A></P>
+<P>It has an editor for writing and&nbsp;running FF3 Script 
+files.</P>
+<P>The right part of the screen is for direct communication 
+with the FF32.</P>
+<P>&nbsp;</P>
+<P><IMG style="HEIGHT: 443px; WIDTH: 632px" alt="" 
+src="TheGui.png" width=953 height=600></P>
+<a name="A1"></a><h1>2. The Gui</h1>
+<a name="A2"></a><h2>2.1 Menus</h2>
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+
+<P><STRONG>File Menu</STRONG> 
+   ;</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+  <P><STRONG>New</STRONG> ; Creates a new blank file<BR><STRONG>Open</STRONG> ; Opens an existing file<BR><STRONG>Save</STRONG> 
+  ; Saves the file<BR><STRONG>Exit</STRONG> ;Exits the program</P>
+  <P>&nbsp;</P></BLOCKQUOTE>
+<P dir=ltr><STRONG>Edit Menu</STRONG> 
+;&nbsp; (right clicking in the editor window pops up this menu as well)</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+  <P dir=ltr><STRONG>Undo</STRONG> ; Undo the last action in the editor<BR><STRONG>Redo</STRONG> ; Cancel the 
+  Undo action<BR><STRONG>Cut</STRONG> ; Cuts the selection in the clipboard<BR><STRONG>Copy</STRONG> : Copies the 
+  selection to the clipboard<BR><STRONG>Paste</STRONG> ; Paste at the current cursor 
+  location<BR><STRONG>Select All</STRONG>  ; Selects the entire editor 
+  window contents</P>
+  <P dir=ltr><EM></EM>&nbsp;</P></BLOCKQUOTE>
+  <P dir=ltr><STRONG>Tools Menu</STRONG>  ;</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+  <P dir=ltr><STRONG>Run </STRONG> ; Runs the current script<BR><STRONG>Stop</STRONG> ; Stops 
+  running<BR><STRONG>Set Font</STRONG>  ; Changes the Font and color of the editor 
+  window<BR><STRONG>Create HEX File</STRONG>   ; Opens a new window to type hex bytes to save as a 
+  bin file, or as a hex file with HEX digits.<BR><STRONG>Split File</STRONG> ; Splits a 
+  file in multiple files of max number of bytes, small window will pop up in the 
+  editor window left above, 
+  asking for the max number of bytes in each file, numbers will be added 
+  to the original file name.<BR><STRONG>Hex to Bin</STRONG> ; Converts 
+  a file of hex digits into a binary file, only lines containing only hex digits 
+  (0-9, a-f, A-F) will be converted 
+  If a line has an odd number of characters then a zero will be inserted at the 
+  beginning of the line.<BR><STRONG>Intel HEX to 
+  BIN</STRONG>    ; Converts an Intel hex file into 
+  a binary file, data part only, addresses etc will be ignored.</P>
+  <P dir=ltr>  &nbsp;</P></BLOCKQUOTE>
+  <P dir=ltr><STRONG>Help Menu</STRONG>  ;</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+  <P dir=ltr><STRONG>Help</STRONG> ; Shows this help file<BR><STRONG>Help Index</STRONG> ; 
+  Shows this help file index</P>
+  <P dir=ltr>  &nbsp;</P></BLOCKQUOTE>
+<a name="A3"></a><h2>2.2 Tools</h2>
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+
+<P>The tools bar ;</P>
+<P><IMG alt="" src="tools menu.png"></P>
+<P>First block is New, Open and Save</P>
+<P>Second block is Cut, Copy and Paste</P>
+<P>Third block is Zoom and Zoom out in the editor window, 
+(makes text bigger + or smaller -)</P>
+<P>Fourth block is running the script.</P>
+<P>Last block is stopping the script</P>
+<P>&nbsp;</P>
+<a name="A4"></a><h2>2.3 InterActive</h2>
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+
+<P>The right part of the screen is the interactive part&nbsp;for direct communication 
+with the FF32.</P>
+<P>The Output window below shows the result of the actions, the clear button 
+clears this window.</P>
+<P><STRONG>About</STRONG> ; </P>
+<P><IMG alt="" src="about.png"></P>
+<P>Shows the number of devices connected, the 1st device and 
+the firmware version.<BR>You can get and set the USB address for the device, 
+Vendor name, Product and Serial Number.<BR>Can write anything you want and click 
+on Set to Save it in the ff32</P>
+<P><STRONG>Dig OUT ;</STRONG></P>
+<P><IMG alt="" src="DigOut.png"></P>
+<P>Here you can set pins high or low (1 or 0)<BR>Or set a 
+whole block or several pins in a block (A or B) at once.<BR>Only the pins with 
+Enabled checked will be affected.</P>
+<P><STRONG>Dig IN</STRONG>;</P>
+<P><IMG alt="" src="DigIn.png"></P>
+<P>Read the value, low or high from a pin or read more pins 
+from a block or a whole block.<BR>Only pins with Enabled set will be read.</P>
+<P><STRONG>PWM</STRONG>;</P>
+<P><IMG alt="" src="pwm.png"></P>
+<P>Sets one to 4 of the A block pins as PWM, from 0 to 
+100%<BR>Stop All will set all 4 to 0%, Set All will set all 4 pins at once with 
+the specified %</P>
+<P><STRONG>Analog IN</STRONG>;</P>
+<P><IMG alt="" src="analogin.png"></P>
+<P>Gets the Analog input from one of the B pins.<BR>Plot 
+will start sampling the pin and plots a graphical (Simple Scope) <BR>Stop, 
+stops sampling and plotting.</P>
+<P><STRONG>SPI</STRONG>;</P>
+<P><IMG alt="" src="spi.png"></P>
+<P>For SPI serial communication.<BR>First Set the pins to 
+use for CS, SCK, MOSI and MISO.<BR>Read will read the SPI port (Data Length 
+bytes),&nbsp;if there is data in the Data to Write or Write before Read 
+part<BR>Then this data will be send out before the read starts<BR>Write will 
+write out the data in the Data to Write or Write before Read part<BR>Load will 
+load a file in the Data to Write or Write before Read part (max 60 
+bytes)<BR>Save will save the Data to Write or Write before Read part to 
+disk<BR>Data length is the max number of bytes to read. (max 60 bytes)<BR>ASCII 
+or HEX can be set to set the Data to Write or Write before Read part in ASCII or 
+HEX mode.<BR>Type only HEX Digits in hex mode or data might be lost.</P>
+<P><STRONG>I2C</STRONG>;</P>
+<P><IMG alt="" src="i2c.png"></P>
+<P>For&nbsp;I2C serial communication.<BR>First Set the pins 
+to use for SCL and SDA<BR>Read will read the I2C port (Data Length 
+bytes),&nbsp;if there is data in the Data to Write or Write before Read 
+part<BR>Then this data will be send out before the read starts<BR>Write will 
+write out the data in the Data to Write or Write before Read part<BR>Load will 
+load a file in the Data to Write or Write before Read part (max 60 
+bytes)<BR>Save will save the Data to Write or Write before Read part to 
+disk<BR>Data length is the max number of bytes to read. (max 60 bytes)<BR>ASCII 
+or HEX can be set to set the Data to Write or Write before Read part in ASCII or 
+HEX mode.<BR>Type only HEX Digits in hex mode or data might be lost.</P>
+<P><STRONG>1-Wire</STRONG>;</P>
+<P><IMG alt="" src="wire1.png"></P>
+<P>For&nbsp;1Wire serial communication.<BR>First Set the 
+pin to use for DQ<BR>Read will read the&nbsp;1Wire port (Data Length 
+bytes),&nbsp;if there is data in the Data to Write or Write before Read 
+part<BR>Then this data will be send out before the read starts<BR>Write will 
+write out the data in the Data to Write or Write before Read part<BR>Load will 
+load a file in the Data to Write or Write before Read part (max 60 
+bytes)<BR>Save will save the Data to Write or Write before Read part to 
+disk<BR>Data length is the max number of bytes to read. (max 60 bytes)<BR>ASCII 
+or HEX can be set to set the Data to Write or Write before Read part in ASCII or 
+HEX mode.<BR>Type only HEX Digits in hex mode or data might be lost.<BR>Reset 
+will reset the port<BR>Write bit 1, writes a 1, Write bit 0 writes a 0 and read 
+bit reads one bit.</P>
+<a name="A5"></a><h1>3. Scripting</h1>
+<a name="A6"></a><h2>3.1 Introduction</h2>
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+
+<P>FF32 Scripting is a simple scripting langue to controll all the ff32 
+functions.</P>
+<P>It can cotroll all the pins, as well as analog in, PWM, SPI, I2C and 
+1Wire</P>
+<P>A blinking LED script looks like this;</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr><FONT color=#808080 size=4>
+  <P>do<BR>a1 = 1<BR>sleep<BR>a1=0<BR>sleep<BR>loop</P></BLOCKQUOTE></FONT>
+<P dir=ltr>This will blink a LED on pin A1 every second</P>
+<P dir=ltr>&nbsp;</P>
+<a name="A7"></a><h2>3.2 Expressions</h2>
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+
+<P><STRONG>String expressions consists 
+of strings and/or numeric expressions.</STRONG></P>
+<P><STRONG>Numeric Expressions</STRONG></P>
+<P>These are just numbers and calculations<BR>Numbers can be entered as decimal, 
+hex and binary<BR>Hex numbers Start with an x, like xBA4C<BR>Binary numbers 
+starts with an n like n1001101</P>
+<P>Valid numbers are ; 1234545, x23FDE, xfde34, n11001, X45F, N1101&nbsp;etc.</P>
+<P><BR>Negative numbers like -23 are not allowed, because you work with bytes 
+most and so is xFF 255 or -1, so it will always be 255<BR>Calculations can 
+result in negative numbers, like 2-1 results in -1, and they can be stored in 
+the S variables, but when used they will be converted to positive with most of 
+the commands.</P>
+<P><STRONG>Calculations</STRONG></P>
+<P>There are a few math calculations;</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+  <P>+&nbsp; &nbsp;Plus, adding<BR>-&nbsp;&nbsp; &nbsp;minus, 
+  substation<BR>*&nbsp;&nbsp;&nbsp; Multiply<BR>/&nbsp;&nbsp;&nbsp; 
+  Division<BR>%&nbsp; Mod<BR>^&nbsp;&nbsp;&nbsp; 
+  Power<BR>&amp;&nbsp;&nbsp;Bitwise And<BR>|&nbsp;&nbsp;&nbsp; Bitwise 
+Or</P></BLOCKQUOTE>
+<P dir=ltr>Valid numerical calculations are ; 12 + 56 / 7, xFF * 3, n101 + xB, 
+n11 ^ 2, nFF &amp; 3 | A1 etc.&nbsp; (A1 is pin A1 on the FF32)</P>
+<P dir=ltr>&nbsp;</P>
+<P dir=ltr><STRONG>String Expressions</STRONG></P>
+<P dir=ltr>String expressions consist of strings and/or 
+numeric expressions, separated by a , (comma)<BR>String go between "</P>
+<P dir=ltr>"Hello ",1234," world"&nbsp;&nbsp;&nbsp; will 
+give a string as 'Hello 1234 World'</P>
+<P dir=ltr>"hello ",xBAB&nbsp; will result in 'Hello 
+2987'</P>
+<P dir=ltr>"Port A1 is ; ",A1&nbsp; will give 'Port A1 is ; 
+&lt;value of port A1, 1 or 0&gt;'</P>
+<P dir=ltr>"abc", 5 * 10 , "def"&nbsp;&nbsp; will be 
+'abc50def'</P>
+<P dir=ltr>&nbsp;</P>
+<P dir=ltr><STRONG>HEX Strings</STRONG></P>
+<P dir=ltr>Hex digits can be entered between [] like 
+[a34bc3f] or [34DEF6CD]</P>
+<P dir=ltr>These are separate stings and cannot be used in 
+calculations and string expressions</P>
+<P dir=ltr>Intern they are converted to binary when used, 
+when the length is odd, a zero will be inserted at front.</P>
+<P dir=ltr>&nbsp;</P>
+<P dir=ltr><STRONG>Compare Expressions 
+(Conditions)</STRONG></P>
+<P dir=ltr>A comparison consist of 2 numeric 
+expressions and one compare instruction between&nbsp;{} like {5 = 6}<BR> 
+ They return false or true 
+and can only be used with the IF and LOOP UNTIL commands</P>
+<P dir=ltr>Only 3 compare instructions are available;</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P dir=ltr>=&nbsp;&nbsp;&nbsp; Equal (if is the 
+  same)<BR>&lt;&nbsp;&nbsp;&nbsp; Les than (if 
+  smaller)<BR>&gt;&nbsp;&nbsp;&nbsp; Greater than (if bigger)</P></BLOCKQUOTE>
+<P dir=ltr>Some examples are;&nbsp; (A1=1)&nbsp; (34 &gt; 
+67)&nbsp; (3*6+1 = 56)&nbsp; etc.</P>
+<P dir=ltr>&nbsp;</P>
+<a name="A8"></a><h2>3.3 Variables</h2>
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+
+<P> 
+ All variables are predefined.</P>
+<P> 
+ Most imported are the port pins as variables, these are A1 
+.. A6 and B1 .. B12</P>
+<P> 
+ These are 1 bit variables, are only 1 or 0, they can be 
+set like A1=&lt;numeric expression)<BR>When the result of the numeric 
+expression is not 1 or zero, then it will be compared to<BR>the half of the 
+voltage, so when powered with 5 volts, the pin will be set to zero if 
+the<BR>result is below 2.5,when the power is 3.3 volt, then zero is below 
+1.5</P>
+<P> 
+ When used in expressions, they will return the state of the 
+pin, always 1 or 0.</P>
+<P> 
+ Examples ;</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P><FONT color=#808080>A1=0<BR>B10 = 1<BR>a3 = a3 | 
+  a1<BR>b12 = 5 * 6</FONT></P>
+<P><FONT color=#808080></FONT>&nbsp;</P></BLOCKQUOTE>
+<P dir=ltr><FONT color=#000000>Then there are 2 special 
+block variables, AB and BB, the set or read a whole block.<BR>When set they need 
+2 numeric expressions, the mask and the data, when read they need only the 
+mask.</FONT></P>
+<P dir=ltr> 
+ Like AB=&lt;mask&gt; &lt;data&gt;&nbsp; Ports 
+where the mask is 0 will not be affected.</P>
+<P dir=ltr> 
+ Examples ;</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P dir=ltr><FONT color=#808080>AB =     3 
+  1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  Will set A1 to 1 and A2 to zero <BR>BB = n101 n100&nbsp;&nbsp;&nbsp;&nbsp; 
+  Will set B3 to one and B1 to 
+  zero<BR>BBn1010&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Will 
+  return the pins of B2 and B4, when both are low it return zero, when both are 
+  high it returns 10 (decimal)</FONT></P>
+<P dir=ltr><FONT color=#808080></FONT>&nbsp;</P></BLOCKQUOTE>
+<P dir=ltr><FONT color=#000000>Then 
+there are 12 analog pin variables, BA1 .. BA12,&nbsp;they are read only and 
+returns the voltage from the pin.</FONT></P>
+<P dir=ltr>Examples ;</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P dir=ltr><FONT color=#808080>BA10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  Returns the voltage on pin B10<BR>ba9 * 10&nbsp;&nbsp;&nbsp;&nbsp; Returns the 
+  voltage on pin B9 multiplied by 10<BR>BA1 / 100&nbsp;&nbsp; Returns the 
+  voltage from pin 1 devided by 100</FONT></P>
+<P dir=ltr><FONT color=#808080></FONT>&nbsp;</P></BLOCKQUOTE>
+<P dir=ltr><FONT color=#000000>There are 
+9 predefined (double) variables, S1 .. S9<BR>They can be write and read and can 
+contain negative numbers as well as result of an expression.<BR>But -1 be 
+converted to 1 when used as byte and not 255</FONT></P>
+<P dir=ltr>Examples ;</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P dir=ltr><FONT color=#808080>S4 =      12.7<BR>s1 = 5 / 
+  2<BR>S2 = S1 * S4</FONT></P>
+<P dir=ltr><FONT color=#808080></FONT>&nbsp;</P></BLOCKQUOTE>
+<P dir=ltr><FONT color=#000000>Then 
+there are 4 
+buffers of 60 bytes, Buffa .. Buffb</FONT></P>
+<P dir=ltr>They can be filled with a string expression or 
+with a HEX string.<BR>They can be used in string expressions as well.</P>
+<P dir=ltr>And they can be accessed by index like BUFFA(4)</P>
+<P dir=ltr>Examples ;</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P dir=ltr><FONT color=#808080>BUFFA = 
+  [45def45ab]<BR>buffb = "Port B12 is ; ",b12<BR>Buffd = "Buffa = ",buffa<BR>buffa(5)=12<BR > BUFFD(4) = 
+  BUFFA(5)</FONT></P>
+<P dir=ltr><FONT color=#808080></FONT>&nbsp;</P></BLOCKQUOTE>
+<P dir=ltr>And then there is a read only variable V, which 
+contains the power, 5 or 3.3</P>
+<P dir=ltr>&nbsp;</P>
+<a name="A9"></a><h2>3.4 Commands</h2>
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+
+<P> 
+ Commands / Statements are always the first in a 
+line.</P>
+<P> 
+ Case don't matter, can be uppercase or lowercase or 
+combination.</P>
+<P><STRONG>'</STRONG> is the 
+ remark symbol, a line beginning with ' will be 
+ignored.</P>
+<P> 
+ Commands are ;</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>WRITE</STRONG> 
+(filename) BUFFx&nbsp;</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>Writes a buffer, 
+  BUFFA .. BUFFD, to a file (filename)<BR>Filename can be a string expression as 
+  well<BR>write (test.txt) buffa<BR>write ("test",s1,".txt") buffb</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>&nbsp;</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>READ</STRONG> 
+(filename) BUFFx</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>Reads a file into a 
+  buffer, BUFFA .. BUFFD<BR>Filename can be a string expression as well<BR>If the 
+  file exists it reads max 60 bytes<BR>read&nbsp;(test.txt) 
+  buffa<BR>read&nbsp;("test",s1,".txt") buffb</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>&nbsp;</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>PRINT</STRONG> 
+&lt;D/S/X/N&gt; (string expression) or (numeric expression)</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>Prints a string 
+  expression or numeric expression to the output screen on the right 
+  below.<BR>&lt;D/S/X/N&gt; is optional, only one of them, no combinations<BR>If 
+  D then it will force to print decimal&nbsp; &gt; print d&nbsp;5 * 10 
+  &nbsp;&gt; 50<BR>If S it will force to print as a string &gt; print s "hello 
+  world" &gt; hello world<BR>If X it will force to print as HEX &gt; print x 255 
+  &gt; FF<BR>if N Then it will print the result as binary &gt; print n xa &gt; 
+  1010</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>Default is decimal 
+  or string, depending on the expression to print.</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>&nbsp;</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>SLEEP</STRONG> 
+&lt;numeric expression&gt;</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>Sleeps for 1 second 
+  default, or when numeric expression is present, it sleeps for the result of 
+  the expression in milliseconds.</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>sleep &gt; sleeps 
+  one second<BR>sleep 500 &gt; sleeps 500 
+milliseconds</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+&nbsp;</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>WAIT</STRONG>&nbsp;pin= 
+ 0/1 &lt;numeric expression&gt;</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+wait     
+(sleeps) until the 
+  pin goes high or low, numeric expression is optimal en is the max 
+  milliseconds to wait.<BR>wait b1 = 0&nbsp; &gt;&nbsp;&nbsp; &nbsp;waits 
+  until pin b1 becomes zero.<BR>wait a1 =  1&nbsp; 500&nbsp;&nbsp;&nbsp; &gt;&nbsp; 
+  waits until pin a1 goes high or 500 milliseconds, whatever comes     
+first.</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+&nbsp;</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>PWM</STRONG> 
+pinA&nbsp; numeric     
+expression</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+Sets the PWM on one 
+  of the A pins (A1 .. A6)<BR>Numeric expression is the percentage (0 .. 
+  100%)<BR>Greater than 100 will always be 100<BR>pwm a2 50&nbsp;&nbsp; .&nbsp; 
+  sets&nbsp;PWM on a2 at 50%<BR>pwm a1 50 / 2&nbsp;&nbsp; &gt;&nbsp; 
+  sets&nbsp;PWM on pin a1 at     
+25%</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+&nbsp;</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>SPI 
+SET</STRONG> pin1 pin2 pin3 pin4 (CS,SCK,MOSI,MISO)</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+Sets the pins used 
+  for SPI, can be any pin (A1 .. A6, B1 .. B12)<BR>pin1 - 
+  CS, pin2 - SCK, pin3 - MOSI and pin4 - MISO<BR>spi set a1 a2 a3 a4&nbsp; &gt; sets SPI pins 
+  (a1 .. a4) resp     
+(CS,SCK,MOSI,MISO)</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+&nbsp;</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>SPI 
+WRITE</STRONG> (string expression) or     
+(HEX     
+String)</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+Writes the string 
+  expression or hex string (max 60 bytes) to the SPI port<BR>spi write "hello 
+  world"&nbsp;&nbsp; &gt; sends hello world out on SPI<BR>spi write 
+  [f3ad56eb]&nbsp;&nbsp; &gt;&nbsp; writes an hex string to the&nbsp;SPI port     
+as     
+binary</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+     
+&nbsp;</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>SPI 
+READ</STRONG> len BUFFx &lt;(string expression) or     
+(HEX     
+String)&gt;</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+Reads len number of 
+  bytes from&nbsp;SPI in one of the buffers (BUFFA .. BUFFD)<BR>len is a numeric 
+  expression max 60 If higher it will be 60<BR>When the string expression or hex 
+  string is present, then this will be written before reading (max 60 
+  bytes)<BR>spi read 10 buffa&nbsp;&nbsp; &gt;&nbsp;&nbsp; reads 10 bytes from 
+  SPI in buffa<BR>spi read 20 buffb "hello"&nbsp;&nbsp; &gt; writes hello to SPI 
+  and then reads 20 bytes in buffb<BR>spi read 60 buffc [abcdef09]&nbsp; &gt; 
+  writes the hex string as binary to SPI and then reads 60 bytes     
+in     
+buffc</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+     
+&nbsp;</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>I2C 
+SET</STRONG> pin1     
+pin2     
+(SCL,SDA)</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+Sets the pins used 
+  for I2C, can be any pin (A1 .. A6, B1 .. B12)<BR>pin1 
+  -&nbsp;SCL and pin2 - SDA<BR>i2c set a1 a2&nbsp; &gt; sets SPI pins (a1 .. a2) 
+     
+resp     
+(SCL,SDA)</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+     
+&nbsp;</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>I2C 
+WRITE</STRONG> (string expression) or     
+(HEX     
+String)</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+Writes the string 
+  expression or hex string (max 60 bytes) to the&nbsp;I2C port<BR>i2c write 
+  "hello world"&nbsp;&nbsp; &gt; sends hello world out on I2C <BR>i2c write 
+  [f3ad56eb]&nbsp;&nbsp; &gt;&nbsp; writes an hex string to the&nbsp;I2C port     
+as     
+binary</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+     
+&nbsp;</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>I2C 
+READ</STRONG> len BUFFx &lt;(string expression) or     
+(HEX     
+String)&gt;</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+Reads len number of 
+  bytes from&nbsp;I2C in one of the buffers (BUFFA .. BUFFD)<BR>len is a numeric 
+  expression max 60 If higher it will be 60<BR>When the string expression or hex 
+  string is present, then this will be written before reading (max 60 
+  bytes)<BR>i2c&nbsp;read 10 buffa&nbsp;&nbsp; &gt;&nbsp;&nbsp; reads 10 bytes 
+  from&nbsp;I2C in buffa<BR>i2c&nbsp;read 20 buffb "hello"&nbsp;&nbsp; &gt; 
+  writes hello to I2C and then reads 20 bytes in buffb<BR>i2c read 60 buffc 
+  [abcdef09]&nbsp; &gt; writes the hex string as binary to&nbsp;I2C and then 
+  reads 60 bytes     
+in     
+buffc</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+     
+&nbsp;</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>1WIRE 
+SET</STRONG>     
+     
+pin</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+Sets the pin used 
+  for 1Wire (DQ), can be any pin (A1 .. A6, B1 .. B12)<BR>1wire set 
+  b1&nbsp;&nbsp; &gt; sets b1 to be uses as DQ pin     
+for     
+1Wire</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+     
+&nbsp;</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>1WIRE 
+WRITE</STRONG> (string expression) or     
+(HEX     
+String)</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+Writes the string 
+  expression or hex string (max 60 bytes) to the&nbsp;1Wire 
+  port<BR>1wire&nbsp;write "hello world"&nbsp;&nbsp; &gt; sends hello world out 
+  on&nbsp;1Wire <BR>1wire write [f3ad56eb]&nbsp;&nbsp; &gt;&nbsp; writes an hex 
+  string to the&nbsp;1Wire port     
+as     
+binary</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+     
+&nbsp;</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>1WIRE 
+WRITEB</STRONG>     
+numeric     
+expression</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+Writes one bit (1 or 
+  0) out to the 1Wire port<BR>When the result of the numeric expression is not 1 
+  or zero, then it will be compared to<BR>the half of the 
+  voltage, so when powered with 5 volts, the pin will be set to zero if the<BR 
+  >result is below 2.5,when the power is 3.3 volt, then zero 
+  is below 1.5<BR>     
+ 1wire writeb 0&nbsp;&nbsp; &gt;&nbsp; 
+  send a zero out     
+to     
+1Wire</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+     
+          
+     
+&nbsp;</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>1WIRE 
+READ</STRONG>     
+    len 
+  BUFFx &lt;(string expression) or     
+(HEX     
+String)&gt;</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+Reads len number of 
+  bytes from&nbsp;1Wire in one of the buffers (BUFFA .. BUFFD)<BR>len is a numeric 
+  expression max 60 If higher it will be 60<BR>When the string expression or hex 
+  string is present, then this will be written before reading (max 60 
+  bytes)<BR>1wire&nbsp;read 10 buffa&nbsp;&nbsp; &gt;&nbsp;&nbsp; reads 10 bytes 
+  from&nbsp;1Wire in buffa<BR>1wire&nbsp;read 20 buffb "hello"&nbsp;&nbsp; 
+  &gt; writes hello to&nbsp;1Wire and then reads 20 bytes in buffb<BR>1wire&nbsp;read 60 buffc 
+  [abcdef09]&nbsp; &gt; writes the hex     
+string as binary to&nbsp;1Wire and 
+  then reads 60 bytes     
+in     
+buffc</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+     
+          
+     
+&nbsp;</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>1WIRE 
+READB</STRONG>     
+     
+          
+     
+Sx</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+Reads one bit (0 or 
+  1) from the 1Wire port in a Sx variable (S1 .. S9)<BR>1wire readb 
+  s3&nbsp;&nbsp;&nbsp;     
+&gt;&nbsp; reads one bit from 
+  the one wire port     
+in     
+s3</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+     
+          
+     
+&nbsp;</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>1WIRE 
+RESET</STRONG>     
+     
+          
+     
+</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+     
+    Resets the     
+1Wire     
+port</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+     
+          
+     
+&nbsp;</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>IF</STRONG>     
+     
+     {compare     
+expression}     
+statement</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+The statement will be 
+  executed when the compare expression returns true<BR>if {a1 =0} print "A1 is 
+  low"&nbsp;&nbsp;&nbsp;&gt; &nbsp;will print A1 is&nbsp;low when pin a1 is 
+  0<BR>if {a1 =1} print "A1 is high"&nbsp;&nbsp;&gt;&nbsp; will print A1 
+  is&nbsp;high when pin a1     
+is     
+1</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+     
+          
+     
+&nbsp;</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>DO 
+</STRONG>     
+     
+          
+     
+</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+     
+          
+     
+Starts a loop, 
+  defines where a loop jumps back to, if there is no LOOP, it will just do 
+  nothing.<BR>do&nbsp;&nbsp;&nbsp; &gt; Defines the do     
+     
+          
+     
+location</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+     
+          
+     
+&nbsp;</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>LOOP</STRONG> 
+&lt;numeric     
+     
+          
+     
+expression&gt;</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+     
+          
+     
+End of a loop, jumps 
+  back to just after the DO<BR>When numeric expression is present then it will 
+  jump result of expression times.<BR>loop&nbsp;&nbsp; &gt; jumps back to the 
+  line after DO<BR>loop 10&nbsp; &gt; loops 10 times. and then continues with 
+  the following     
+     
+          
+     
+lines</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+     
+          
+     
+&nbsp;</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG>LOOP 
+UNTIL</STRONG> {compare     
+     
+          
+     
+expression}</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+     
+          
+     
+Loops back to DO 
+  when the compare expression returns false<BR>loop until {a3 = 0}&nbsp;&nbsp; Jumps 
+  back to the line after DO when pin a3 is 1, else it just 
+continues.<BR>     
+     
+          
+     
+</P></BLOCKQUOTE>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG><FONT color=#ff0000><FONT size=4>Nested loops are not implemented, LOOP will jump back 
+to the last encountered DO</FONT> </FONT></STRONG>     
+     
+          
+     
+</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><STRONG><FONT color=#ff0000></FONT></STRONG>     
+     
+          
+     
+&nbsp;</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr><FONT color=#000000><STRONG>END</STRONG>&nbsp; </FONT>     
+     
+          
+     
+</P>
+<BLOCKQUOTE style="MARGIN-RIGHT: 0px" dir=ltr>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>     
+     
+          
+     
+If used inside a 
+  loop, it will end the loop and&nbsp;jump to the line after the loop<BR>if used 
+  outside a loop it will end (stops) the     
+     
+          
+     
+script.</P></BLOCKQUOTE>
+<a name="A10"></a><h1>4. Examples</h1>
+<a name="A11"></a><h2>4.1 Blinky</h2>
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+
+<P> 
+ Connect a LED on A1 and on A2 with a resistor, a pull up 
+resistor and a switch to gnd on B1<BR>Run this script and the leds start blinking 
+until you push the switch.</P>
+<P>&lt; EM&gt; </EM>&nbsp;</P>
+<P> 
+ <EM>' blink 2 LEDs on A1 and A2 until B1 = 
+1<BR>do<BR>a1=1<BR>a2=0<BR>sleep<BR>a1=0<BR>a2=1<BR>sleep<BR>loop until {b1=  
+             1}</EM></P>
+<a name="A12"></a><h2>4.2 Temperture</h2>
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+
+<P>Reads the temperature from a DS18B20 by 1wire on pin B1.<BR>It keeps looping, 
+so press stop to sop it</P>
+<P>&nbsp;</P>
+<P><EM>' reads temp from 1wire device DS18B20 on pin 
+B1<BR>s2 = 1-2<BR>1wire set b1<BR>do<BR>1wire write [cc44]<BR>sleep<BR>1wire 
+read 9 buffa [ccbe]<BR>s1 = buffa(1)) * 256 + buffa(0)<BR>if {buffa(1) &gt; 127} 
+s1 = 65536 - s1<BR>s1 = s1 / 16<BR>if {buffa(1) &gt; 127} s1 = s1 * s2<BR>print 
+s1<BR>loop</EM> 
+ <EM>             </EM></P>
+<a name="A13"></a><h2>4.3 Servo</h2>
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+<style>
+html,body { 
+	/* Default Font */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+}
+</style>
+
+<P><EM>This controls a servo via pin B1 with a 
+potentiometer, The servo sits on pin A1</EM></P>
+<P><EM></EM>&nbsp;</P>
+<P><EM>' control a servo on pin A1 with a potentiometer 
+on B1<BR>do<BR>s2 = 100 / v<BR>s1 = ba1 * s2<BR>pwm a1 s1<BR>loop</EM> 
+ <EM>             </EM></P>
+
+</body>
+</html>
