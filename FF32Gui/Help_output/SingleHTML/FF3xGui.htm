@@ -302,8 +302,8 @@ and can only be used with the IF and LOOP UNTIL commands</P>
 <P dir=ltr>=&nbsp;&nbsp;&nbsp; Equal (if is the 
   same)<BR>&lt;&nbsp;&nbsp;&nbsp; Les than (if 
   smaller)<BR>&gt;&nbsp;&nbsp;&nbsp; Greater than (if bigger)</P></BLOCKQUOTE>
-<P dir=ltr>Some examples are;&nbsp; (A1=1)&nbsp; (34 &gt; 
-67)&nbsp; (3*6+1 = 56)&nbsp; etc.</P>
+<P dir=ltr>Some examples are;&nbsp; {A1=1}&nbsp; {34 &gt; 
+67}&nbsp; {3*6+1 = 56}&nbsp; etc.</P>
 <P dir=ltr>&nbsp;</P>
 <a name="A8"></a><h2>3.3 Variables</h2>
 <style>
@@ -844,11 +844,12 @@ html,body {
  Connect a LED on A1 and on A2 with a resistor, a pull up 
 resistor and a switch to gnd on B1<BR>Run this script and the leds start blinking 
 until you push the switch.</P>
-<P>&lt; EM&gt; </EM>&nbsp;</P>
+<P>        
+    &nbsp;</P>
 <P> 
  <EM>' blink 2 LEDs on A1 and A2 until B1 = 
-1<BR>do<BR>a1=1<BR>a2=0<BR>sleep<BR>a1=0<BR>a2=1<BR>sleep<BR>loop until {b1=  
-             1}</EM></P>
+0<BR>do<BR>a1=1<BR>a2=0<BR>sleep<BR>a1=0<BR>a2=1<BR>sleep<BR>loop until {b1=  
+             0}</EM></P>
 <a name="A12"></a><h2>4.2 Temperture</h2>
 <style>
 html,body { 
@@ -870,7 +871,7 @@ so press stop to stop it</P>
 <P>&nbsp;</P>
 <P><EM>' reads temp from 1wire device DS18B20 on pin 
 B1<BR>s2 = 1-2<BR>1wire set b1<BR>do<BR>1wire write [cc44]<BR>sleep<BR>1wire 
-read 9 buffa [ccbe]<BR>s1 = buffa(1)) * 256 + buffa(0)<BR>if {buffa(1) &gt; 127} 
+read 9 buffa [ccbe]<BR>s1 = buffa(1) * 256 + buffa(0)<BR>if {buffa(1) &gt; 127} 
 s1 = 65536 - s1<BR>s1 = s1 / 16<BR>if {buffa(1) &gt; 127} s1 = s1 * s2<BR>print 
 s1<BR>loop</EM> 
  <EM>             </EM></P>

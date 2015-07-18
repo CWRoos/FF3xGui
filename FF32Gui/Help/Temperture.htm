@@ -20,7 +20,7 @@ so press stop to stop it</P>
 <P>&nbsp;</P>
 <P><EM>' reads temp from 1wire device DS18B20 on pin 
 B1<BR>s2 = 1-2<BR>1wire set b1<BR>do<BR>1wire write [cc44]<BR>sleep<BR>1wire 
-read 9 buffa [ccbe]<BR>s1 = buffa(1)) * 256 + buffa(0)<BR>if {buffa(1) &gt; 127} 
+read 9 buffa [ccbe]<BR>s1 = buffa(1) * 256 + buffa(0)<BR>if {buffa(1) &gt; 127} 
 s1 = 65536 - s1<BR>s1 = s1 / 16<BR>if {buffa(1) &gt; 127} s1 = s1 * s2<BR>print 
 s1<BR>loop</EM> 
  <EM>             </EM></P></body>
